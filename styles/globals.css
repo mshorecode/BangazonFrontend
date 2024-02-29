@@ -1,4 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
@@ -18,5 +21,56 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: #ffffff;
+}
+
+.signout:last-child {
+  margin-left: auto;
+}
+
+.nav {
+  padding: 0.5rem;
+}
+
+.shop-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 25px;
+}
+
+.dropdown-toggle::after {
+  cursor: pointer;
+  display: none !important;
+}
+
+.user-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+  width: 50%;
+  gap: 4px;
+}
+
+.form-control {
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
+  border-bottom: 2px solid rgb(30, 41, 59);
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
 }
