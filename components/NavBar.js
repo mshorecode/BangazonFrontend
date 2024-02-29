@@ -1,37 +1,31 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, //
-  Container,
+  Navbar,
   Nav,
-  Button,
 } from 'react-bootstrap';
-import { signOut } from '../utils/auth';
+import { BiSolidCart } from 'react-icons/bi';
+import UserMenu from './UserMenu';
 
 export default function NavBar() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
-        <Link passHref href="/">
-          <Navbar.Brand>CHANGE ME</Navbar.Brand>
-        </Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
-            <Link passHref href="/">
-              <Nav.Link>Home</Nav.Link>
-            </Link>
-            <Link passHref href="/delete-me">
-              <Nav.Link>Delete Me</Nav.Link>
-            </Link>
-            <Button variant="danger" onClick={signOut}>
-              Sign Out
-            </Button>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+    <Navbar bg="dark" variant="dark" className="nav">
+      <Link passHref href="/">
+        <Navbar.Brand>Bangazon</Navbar.Brand>
+      </Link>
+      <div className="signout">
+        <Nav className="me-auto">
+          <Link passHref href="/shop">
+            <Nav.Link>Shop</Nav.Link>
+          </Link>
+          <Link passHref href="/cart">
+            <Nav.Link><BiSolidCart className="h-7 w-7" /></Nav.Link>
+          </Link>
+          <UserMenu />
+        </Nav>
+      </div>
     </Navbar>
   );
 }
