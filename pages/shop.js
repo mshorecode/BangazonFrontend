@@ -1,5 +1,7 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useEffect, useState } from 'react';
-import getAllProducts from '../api/ProductData';
+import { Form } from 'react-bootstrap';
+import { getAllProducts, getProductsByCategory } from '../api/ProductData';
 import ProductCard from '../components/ProductCard';
 
 export default function Shop() {
@@ -10,13 +12,30 @@ export default function Shop() {
     setProducts(data);
   };
 
+  const handleSort = (e) => {
+    getProductsByCategory(e.target.value).then((data) => setProducts(data));
+  };
+
+  const renderAllProducts = async () => {
+    const data = await getAllProducts();
+    setProducts(data);
+  };
+
   useEffect(() => {
     renderProducts();
   }, []);
 
   return (
     <>
-      <h1 className="mt-12 font-semibold fs-3">Newest Items</h1>
+      <div className="flex justify-end">
+        <Form.Select className="mt-4 w-25 sort-dropdown rounded-sm">
+          <option onClick={renderAllProducts}>All</option>
+          <option value="1" onClick={handleSort}>Men's Apparel</option>
+          <option value="2" onClick={handleSort}>Women's Apparel</option>
+          <option value="3" onClick={handleSort}>Kid's Apparel</option>
+          <option value="4" onClick={handleSort}>Electronics</option>
+        </Form.Select>
+      </div>
       <div className="shop-layout">
         {products.map((product) => (
           <ProductCard key={product.productId} product={product} onUpdate={renderProducts} />

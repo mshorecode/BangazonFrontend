@@ -2,17 +2,18 @@ import { useEffect, useState } from 'react';
 import { checkUser } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
 import RegisterForm from '../components/RegisterForm';
-import Shop from './shop';
+import ProductCard from '../components/ProductCard';
+import { getAllProducts } from '../api/ProductData';
 
 function Home() {
   const { user } = useAuth();
   const [authUser, setAuthUser] = useState({});
+  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    checkUser(user.uid).then((data) => {
-      setAuthUser(data);
-    });
-  }, []);
+  const renderProducts = async () => {
+    const data = await getAllProducts();
+    setProducts(data);
+  };
 
   const onUpdate = () => {
     checkUser(user.uid).then((data) => {
@@ -20,9 +21,25 @@ function Home() {
     });
   };
 
+  useEffect(() => {
+    checkUser(user.uid).then((data) => {
+      setAuthUser(data);
+    });
+    renderProducts();
+  }, []);
+
   return (
     <>
-      { authUser?.uid === user?.uid ? (<Shop />) : (<RegisterForm user={user} onUpdate={onUpdate} />)}
+      { authUser?.uid === user?.uid ? (
+        <>
+          <h1 className="mt-12 font-semibold fs-3">Recently Added</h1>
+          <div className="shop-layout">
+            {products.toReversed().slice(0, 20).map((product) => (
+              <ProductCard key={product.productId} product={product} onUpdate={renderProducts} />
+            ))}
+          </div>
+        </>
+      ) : (<RegisterForm user={user} onUpdate={onUpdate} />)}
     </>
   );
 }
