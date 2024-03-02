@@ -12,6 +12,30 @@ const getAllProducts = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getProductsBySellerId = (sellerId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/products/${sellerId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((resp) => resolve(resp.json()))
+    .catch(reject);
+});
+
+const getProductsByCategory = (categoryId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/products/category/${categoryId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((resp) => resolve(resp.json()))
+    .catch(reject);
+});
+
 // const deleteProduct = (id) => new Promise((resolve, reject) => {
 //   fetch(`${clientCredentials.databaseURL}/products/${id}`, {
 //     method: 'DELETE',
@@ -24,4 +48,9 @@ const getAllProducts = () => new Promise((resolve, reject) => {
 //     .catch(reject);
 // });
 
-export default getAllProducts;
+export {
+  getAllProducts,
+  getProductsBySellerId,
+  getProductsByCategory,
+  // deleteProduct,
+};

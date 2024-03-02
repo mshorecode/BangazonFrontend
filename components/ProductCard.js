@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react-bootstrap';
 
 export default function ProductCard({ product }) {
   return (
-    <div className="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-      <div className="flex items-center gap-4 p-6">
+    <div className="rounded-sm border bg-card text-card-foreground shadow-sm" data-v0-t="card">
+      <div className="flex flex-col items-center gap-2 p-3">
         <img
           src={product.productImageUrl}
           alt="Thumbnail"
@@ -14,15 +15,13 @@ export default function ProductCard({ product }) {
           className="aspect-square object-cover border border-gray-200 rounded-md overflow-hidden dark:border-gray-800"
         />
         <div className="grid gap-2 text-sm">
-          <h3 className="font-semibold">{product.productName}</h3>
-          <p className="text-muted">{product.productDescription}</p>
-          <p className="font-medium">${product.productPrice}</p>
+          <h3 className="font-semibold fs-6">{product.productName}</h3>
         </div>
       </div>
-      <div className="items-center p-4 flex justify-end">
-        <button type="button" className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2">
+      <div className="items-center pb-3 flex justify-center">
+        <Button type="button" className="bg-slate-800 border-slate-800 rounded-sm">
           View
-        </button>
+        </Button>
       </div>
     </div>
   );

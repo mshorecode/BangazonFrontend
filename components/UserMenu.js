@@ -8,18 +8,35 @@ export default function UserMenu() {
   const { user } = useAuth();
 
   return (
-    <Dropdown
-      align="end"
-      navbar="true"
-      className="last:mt-auto"
-    >
-      <Dropdown.Toggle className="border-none bg-transparent">
-        <img src={user.fbUser.photoURL} alt="Profile Image" className="h-10 w-10 rounded-full" />
-      </Dropdown.Toggle>
-      <Dropdown.Menu className="rounded-sm">
-        <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-        <Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+    !user.seller ? (
+      <Dropdown
+        align="end"
+        navbar="true"
+        className="last:mt-auto"
+      >
+        <Dropdown.Toggle className="border-none bg-transparent">
+          <img src={user.fbUser.photoURL} alt="Profile Image" className="h-10 w-10 rounded-full" />
+        </Dropdown.Toggle>
+        <Dropdown.Menu className="rounded-sm">
+          <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+          <Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    ) : (
+      <Dropdown
+        align="end"
+        navbar="true"
+        className="last:mt-auto"
+      >
+        <Dropdown.Toggle className="border-none bg-transparent">
+          <img src={user.fbUser.photoURL} alt="Profile Image" className="h-10 w-10 rounded-full" />
+        </Dropdown.Toggle>
+        <Dropdown.Menu className="rounded-sm">
+          <Dropdown.Item href="/profile">Profile</Dropdown.Item>
+          <Dropdown.Item href="/dashboard">Dashboard</Dropdown.Item>
+          <Dropdown.Item onClick={signOut}>Sign Out</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    )
   );
 }

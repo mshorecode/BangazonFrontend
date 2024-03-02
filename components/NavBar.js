@@ -12,16 +12,18 @@ import UserMenu from './UserMenu';
 export default function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" className="nav">
-      <Link passHref href="/">
-        <Navbar.Brand>Bangazon</Navbar.Brand>
-      </Link>
-      <div className="signout">
-        <Nav className="me-auto">
+      <div>
+        <Link passHref href="/">
+          <Navbar.Brand>Bangazon</Navbar.Brand>
+        </Link>
+      </div>
+      <div className="right-nav">
+        <Nav>
           <Link passHref href="/shop">
-            <Nav.Link>Shop</Nav.Link>
+            <Nav.Link className="pt-[11px]">Shop</Nav.Link>
           </Link>
           <Link passHref href="/cart">
-            <Nav.Link><BiSolidCart className="h-7 w-7" /></Nav.Link>
+            <Nav.Link className="pt-[11px]"><BiSolidCart className="h-7 w-7" /></Nav.Link>
           </Link>
           <UserMenu />
         </Nav>
