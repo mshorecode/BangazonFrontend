@@ -17,7 +17,7 @@ export default function NavBar() {
           <Navbar.Brand>Bangazon</Navbar.Brand>
         </Link>
       </div>
-      <div className="right-nav">
+      <div className="right-nav fw-semibold">
         <Nav>
           <Link passHref href="/shop">
             <Nav.Link className="pt-[11px]">Shop</Nav.Link>

@@ -19,7 +19,7 @@ export default function ProductCard({ product }) {
         </div>
       </div>
       <div className="items-center pb-3 flex justify-center">
-        <Button type="button" className="bg-slate-800 border-slate-800 rounded-sm">
+        <Button type="button" href={`/product/${product.productId}`} className="bg-slate-800 border-slate-800 rounded-sm">
           View
         </Button>
       </div>
