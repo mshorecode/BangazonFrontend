@@ -26,7 +26,8 @@ function RegisterForm({ onUpdate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.id) {
-      updateRegisteredUser(formData).then(() => router.push('/profile'));
+      updateRegisteredUser(formData).then(() => router.replace('/profile')
+        .then(window.location.reload()));
     } else {
       registerUser(formData).then(() => onUpdate(user.uid))
         .then(router.push('/'));
@@ -34,9 +35,12 @@ function RegisterForm({ onUpdate }) {
   };
 
   const handleChange = (e) => {
-    const { name, value, checked } = e.target;
+    const {
+      name, value, checked, type,
+    } = e.target;
     setFormData((prev) => ({
-      ...prev, [name]: value, seller: checked,
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   };
 

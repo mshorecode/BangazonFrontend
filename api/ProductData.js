@@ -12,6 +12,18 @@ const getAllProducts = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSingleProduct = (productId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/products/${productId}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((resp) => resolve(resp.json()))
+    .catch(reject);
+});
+
 const getProductsBySellerId = (sellerId) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/products/${sellerId}`, {
     method: 'GET',
@@ -36,21 +48,22 @@ const getProductsByCategory = (categoryId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// const deleteProduct = (id) => new Promise((resolve, reject) => {
-//   fetch(`${clientCredentials.databaseURL}/products/${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Accept: 'application/json',
-//     },
-//   })
-//     .then((resp) => resolve(resp.json()))
-//     .catch(reject);
-// });
+const deleteProduct = (id) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/products/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((resp) => resolve(resp.json()))
+    .catch(reject);
+});
 
 export {
   getAllProducts,
+  getSingleProduct,
   getProductsBySellerId,
   getProductsByCategory,
-  // deleteProduct,
+  deleteProduct,
 };
