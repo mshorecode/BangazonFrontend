@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/img-redundant-alt */
+import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { useAuth } from '../utils/context/authContext';
 import { signOut } from '../utils/auth';
