@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useRouter } from 'next/router';
 import Form from 'react-bootstrap/Form';
@@ -26,7 +26,7 @@ function RegisterForm({ onUpdate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (user.id) {
-      updateRegisteredUser(formData).then(() => router.replace('/profile')
+      updateRegisteredUser(formData).then(() => router.push('/profile')
         .then(window.location.reload()));
     } else {
       registerUser(formData).then(() => onUpdate(user.uid))

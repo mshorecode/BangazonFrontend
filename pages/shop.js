@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { getAllProducts, getProductsByCategory } from '../api/ProductData';
 import ProductCard from '../components/ProductCard';
@@ -16,11 +16,6 @@ export default function Shop() {
     getProductsByCategory(e.target.value).then((data) => setProducts(data));
   };
 
-  const renderAllProducts = async () => {
-    const data = await getAllProducts();
-    setProducts(data);
-  };
-
   useEffect(() => {
     renderProducts();
   }, []);
@@ -29,7 +24,7 @@ export default function Shop() {
     <>
       <div className="flex justify-end">
         <Form.Select className="mt-4 w-25 sort-dropdown rounded-sm">
-          <option onClick={renderAllProducts}>All</option>
+          <option onClick={renderProducts}>All</option>
           <option value="1" onClick={handleSort}>Men's Apparel</option>
           <option value="2" onClick={handleSort}>Women's Apparel</option>
           <option value="3" onClick={handleSort}>Kid's Apparel</option>
