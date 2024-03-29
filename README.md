@@ -1,58 +1,37 @@
-## Project title
-A little info about your project and/ or overview that explains **what** the project is about.
+# This is the name of my Project  [![Netlify Status](https://api.netlify.com/api/v1/badges/4ab7e730-7ed3-4cfd-a988-66195e79a991/deploy-status)](https://app.netlify.com/sites/drt-sortinghat/deploys)
+<!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
 
-## Motivation
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+Here I am putting an overview of what my project is about. It comes below the name of my project so that others can read what it is about and get more details.
 
-## Build status
-Build status of continus integration i.e. travis, appveyor etc. Ex. - 
+[View App](#your-link)
 
-[![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
+## Get Started <!-- OPTIONAL, but doesn't hurt -->
+PLACE CODE SNIPPET HERE
 
-## Code style
-If you're using any code style like xo, standard etc. That will help others while contributing to your project. Ex. -
+## About the User <!-- This is a scaled down user persona -->
+- The ideal user for this application is a teacher
+- They have students in their classrooms that they would like to put into random groups and they have a love and passion of Harry Potter
+- The problem this app solves for them is it allows them to get their students involved and excited about being in random groups. The students have felt that the groups have not been so random and based on favorites.
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
- 
-## Screenshots
-Include logo/demo screenshot etc.
+## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
+- When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the DOM.
+- House Colors: The color of the student's card changes depending on which house they were sorted.
+- Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
+- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
 
-## Tech/framework used
-Ex. -
+## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
+https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
 
-<b>Built with</b>
-- [Electron](https://electron.atom.io)
+## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
+- [Check out the deployed site](#your-link)
+- [Wireframes](#your-link)
+- [Project Board](#your-link)
 
-## Features
-What makes your project stand out?
+## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
+PLACE CODE SNIPPET HERE
 
-## Code Example
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
+<img width="1148" alt="Your Alt" src="your-link.png">
 
-## Installation
-Provide step by step series of examples and explanations about how to get a development env running.
-
-## API Reference
-
-Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
-
-## Tests
-Describe and show how to run the tests with code examples.
-
-## How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
-
-## Contribute
-
-Let people know how they can contribute into your project. A [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md) will be a big plus.
-
-## Credits
-Give proper credits. This could be a link to any repo which inspired you to build this project, any blogposts or links to people who contrbuted in this project. 
-
-#### Anything else that seems useful
-
-## License
-A short snippet describing the license (MIT, Apache etc)
-
-MIT © [Yourname]()
+## Contributors
+- [YOUR NAME](https://github.com/your-github-url)
